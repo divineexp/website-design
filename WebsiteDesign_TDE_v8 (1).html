@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Design — The Divine Experience Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --white:#ffffff;
+  --page:#f8f7f5;
+  --border:#e4e2de;
+  --border-dk:#ceccc7;
+  --text:#0f0f0f;
+  --text-sec:#58554f;
+  --text-hint:#8f8b85;
+  --accent:#0a6b52;
+  --accent-lt:#e6f4f0;
+  --ga:#4fc3f7;
+  --gb:#26e5a0;
+  --gc:#a8ff3e;
+  --dark:#0c110e;
+  --sp:5rem;
+  --hp:4rem;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--page);color:var(--text);font-family:'DM Sans',sans-serif;font-size:17px;line-height:1.7;overflow-x:hidden;}
+
+/* ── UTILITIES ── */
+.gt{background:linear-gradient(90deg,var(--ga),var(--gb),var(--gc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* eyebrow — 14px, wide tracking, substantial */
+.eyebrow{
+  font-size:14px;
+  letter-spacing:0.34em;
+  text-transform:uppercase;
+  color:var(--text-hint);
+  margin-bottom:1.4rem;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-weight:400;
+}
+.eyebrow::before{content:'';display:inline-block;width:32px;height:1px;background:var(--border-dk);}
+.eyebrow-light{
+  font-size:14px;
+  letter-spacing:0.34em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:1.4rem;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.eyebrow-light::before{content:'';display:inline-block;width:32px;height:1px;background:rgba(255,255,255,0.14);}
+
+.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,66px);letter-spacing:0.02em;line-height:0.92;color:var(--text);margin-bottom:1.4rem;}
+.sec-h-light{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5.5vw,66px);letter-spacing:0.02em;line-height:0.92;color:#fff;margin-bottom:1.4rem;}
+.sec-b{font-size:16px;color:var(--text-sec);line-height:2;max-width:580px;margin-bottom:3rem;}
+.sec-b-light{font-size:16px;color:rgba(255,255,255,0.42);line-height:2;max-width:580px;margin-bottom:3rem;}
+
+.btn-primary{
+  display:inline-block;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;
+  font-weight:500;padding:17px 44px;border-radius:2px;text-decoration:none;
+  color:#0a0a0a;background:linear-gradient(90deg,var(--ga),var(--gc));transition:opacity .2s;
+}
+.btn-primary:hover{opacity:0.86;}
+.btn-outline{
+  display:inline-block;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
+  font-weight:500;padding:16px 38px;border-radius:2px;text-decoration:none;
+  color:var(--text);border:1px solid var(--border-dk);transition:border-color .2s,color .2s;
+}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-outline-light{
+  display:inline-block;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
+  font-weight:500;padding:16px 38px;border-radius:2px;text-decoration:none;
+  color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.14);transition:all .2s;
+}
+.btn-outline-light:hover{border-color:rgba(255,255,255,0.38);color:#fff;}
+
+/* ── HERO ── */
+.hero{background:var(--white);padding:6rem var(--hp) 0;}
+.hero-inner{max-width:1280px;margin:0 auto;}
+.hero-eyebrow{
+  font-size:14px;letter-spacing:0.34em;text-transform:uppercase;
+  color:var(--text-hint);margin-bottom:2rem;
+  display:flex;align-items:center;gap:16px;
+}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--border-dk);display:inline-block;}
+.hero-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,10vw,140px);
+  line-height:0.87;letter-spacing:0.01em;
+  color:var(--text);margin-bottom:2rem;
+  max-width:1000px;
+}
+.hero-headline em{font-family:'DM Serif Display',serif;font-style:italic;}
+.hero-body-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+  padding-bottom:3.5rem;border-bottom:1px solid var(--border);
+}
+.hero-body-left p{
+  font-size:19px;color:var(--text-sec);line-height:1.9;
+  margin-bottom:2rem;max-width:500px;
+}
+.hero-actions{display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;}
+.hero-proof{display:flex;flex-direction:column;border-top:1px solid var(--border);}
+.hpi{
+  padding:1.2rem 0;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:1.4rem;
+}
+.hpi-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px;}
+.hpi-text{font-size:15px;color:var(--text-hint);line-height:1.6;}
+.hpi-text strong{color:var(--text);font-weight:400;}
+
+/* hero stat panel */
+.hero-panel{
+  background:var(--dark);
+  margin:0 calc(var(--hp) * -1);
+  padding:2rem var(--hp);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:3px solid var(--text);
+  overflow:hidden;
+}
+.hp-cell{padding:1.25rem 2rem;border-right:1px solid rgba(255,255,255,0.07);}
+.hp-cell:last-child{border-right:none;}
+.hp-cell-label{font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:0.6rem;}
+.hp-cell-val{
+  font-family:'Bebas Neue',sans-serif;font-size:36px;
+  letter-spacing:0.03em;line-height:1;
+  background:linear-gradient(90deg,var(--ga),var(--gc));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hp-cell-sub{font-size:13px;color:rgba(255,255,255,0.24);letter-spacing:0.05em;margin-top:4px;}
+
+
+/* ── WHO WE BUILD FOR ── */
+.who{padding:var(--sp) var(--hp);background:var(--page);}
+.who-inner{max-width:1280px;margin:0 auto;}
+.who-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;
+  align-items:end;margin-bottom:3rem;
+  padding-bottom:3rem;border-bottom:1px solid var(--border);
+}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);}
+.who-card{background:var(--page);padding:2.25rem 2rem;}
+.who-n{
+  font-family:'Bebas Neue',sans-serif;font-size:72px;
+  letter-spacing:0.02em;line-height:1;margin-bottom:1.4rem;
+  background:linear-gradient(90deg,var(--ga),var(--gc));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.who-card h3{
+  font-family:'Bebas Neue',sans-serif;font-size:24px;
+  letter-spacing:0.05em;color:var(--text);
+  margin-bottom:1.1rem;line-height:1.15;
+}
+.who-card p{font-size:15px;color:var(--text-sec);line-height:1.9;margin-bottom:1.75rem;}
+.who-card ul{list-style:none;display:flex;flex-direction:column;gap:0.65rem;border-top:1px solid var(--border);padding-top:1.75rem;}
+.who-card ul li{
+  font-size:14px;color:var(--text-hint);
+  display:flex;align-items:flex-start;gap:10px;letter-spacing:0.02em;line-height:1.5;
+}
+.who-card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px;}
+
+/* ── WHAT WE DELIVER ── */
+.what{padding:var(--sp) var(--hp);background:var(--white);border-top:1px solid var(--border);}
+.what-inner{max-width:1280px;margin:0 auto;}
+.what-grid{display:grid;grid-template-columns:340px 1fr;gap:8rem;align-items:start;}
+.what-sticky{position:sticky;top:5rem;}
+.what-list{border-top:1px solid var(--border);}
+.wi{
+  padding:2.75rem 0;border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:48px 1fr auto;gap:2rem;align-items:start;
+}
+.wi-n{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.14em;color:var(--text-hint);padding-top:6px;}
+.wi h3{font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:0.04em;margin-bottom:0.6rem;line-height:1;}
+.wi p{font-size:15px;color:var(--text-sec);line-height:1.9;}
+.wi-badge{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:6px 13px;border-radius:2px;white-space:nowrap;margin-top:5px;
+}
+.wi-badge.std{color:var(--accent);background:var(--accent-lt);}
+.wi-badge.incl{color:#0a0a0a;background:linear-gradient(90deg,var(--ga),var(--gc));}
+.wi-badge.tier{color:var(--text-hint);background:transparent;border:1px solid var(--border-dk);}
+
+/* ── PACKAGES ── */
+.packages{padding:var(--sp) var(--hp);background:var(--page);border-top:1px solid var(--border);}
+.packages-inner{max-width:1280px;margin:0 auto;}
+.pkg-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;
+  margin-bottom:5rem;padding-bottom:4.5rem;border-bottom:1px solid var(--border);
+}
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--border);}
+.pkg-card{background:var(--page);padding:2rem 1.75rem;display:flex;flex-direction:column;}
+.pkg-card.featured{background:var(--text);}
+.pkg-bp-label{
+  font-size:12px;letter-spacing:0.32em;text-transform:uppercase;
+  margin-bottom:2rem;color:var(--text-hint);
+}
+.pkg-card.featured .pkg-bp-label{color:rgba(255,255,255,0.26);}
+.pkg-num{
+  font-family:'Bebas Neue',sans-serif;font-size:80px;line-height:1;
+  letter-spacing:0.02em;margin-bottom:0;
+  background:linear-gradient(90deg,var(--ga),var(--gc));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.pkg-card.featured .pkg-num{-webkit-text-fill-color:rgba(255,255,255,0.09);background:none;}
+.pkg-name{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.04em;line-height:1;margin-bottom:0.4rem;color:var(--text);}
+.pkg-card.featured .pkg-name{color:#fff;}
+.pkg-scope{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-hint);margin-bottom:2.25rem;}
+.pkg-card.featured .pkg-scope{color:rgba(255,255,255,0.3);}
+.pkg-divider{height:1px;background:var(--border);margin-bottom:2.25rem;}
+.pkg-card.featured .pkg-divider{background:rgba(255,255,255,0.09);}
+.pkg-price{font-family:'Bebas Neue',sans-serif;font-size:56px;letter-spacing:0.01em;line-height:1;margin-bottom:0.3rem;color:var(--text);}
+.pkg-card.featured .pkg-price{color:#fff;}
+.pkg-price sub{font-size:22px;vertical-align:middle;font-family:'DM Sans',sans-serif;font-weight:300;}
+.pkg-timeline{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-hint);margin-bottom:2.25rem;}
+.pkg-card.featured .pkg-timeline{color:rgba(255,255,255,0.28);}
+.pkg-features{list-style:none;flex:1;display:flex;flex-direction:column;gap:0.9rem;margin-bottom:2.5rem;}
+.pkg-features li{font-size:14px;line-height:1.6;display:flex;align-items:flex-start;gap:11px;color:var(--text-sec);}
+.pkg-card.featured .pkg-features li{color:rgba(255,255,255,0.56);}
+.pkg-features li::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:8px;background:var(--accent);}
+.pkg-card.featured .pkg-features li::before{background:var(--gc);}
+.pkg-cta{
+  display:block;text-align:center;font-size:12px;letter-spacing:0.2em;
+  text-transform:uppercase;font-weight:500;padding:16px 20px;border-radius:2px;
+  text-decoration:none;transition:all .2s;margin-top:auto;
+  border:1px solid var(--border-dk);color:var(--text);
+}
+.pkg-cta:hover{border-color:var(--accent);color:var(--accent);}
+.pkg-card.featured .pkg-cta{background:linear-gradient(90deg,var(--ga),var(--gc));color:#0a0a0a;border:none;}
+
+/* ── ALWAYS INCLUDED ── */
+.always{padding:var(--sp) var(--hp);background:var(--white);border-top:1px solid var(--border);}
+.always-inner{max-width:1280px;margin:0 auto;}
+.always-header{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);}
+.always-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);}
+.always-card{background:var(--white);padding:2rem 2rem;}
+.ac-rule{width:28px;height:2px;background:var(--accent);margin-bottom:1.75rem;}
+.always-card h3{font-family:'Bebas Neue',sans-serif;font-size:23px;letter-spacing:0.05em;margin-bottom:0.85rem;}
+.always-card p{font-size:15px;color:var(--text-sec);line-height:1.95;}
+
+/* ── TESTIMONIALS ── */
+.testimonials{padding:var(--sp) var(--hp);background:var(--dark);position:relative;overflow:hidden;}
+.testimonials::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,195,247,0.05) 0%,transparent 65%);
+  pointer-events:none;
+}
+.testimonials-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+.t-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;
+  margin-bottom:5rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(255,255,255,0.06);}
+.t-card{
+  background:var(--dark);padding:2rem 2rem;
+  display:flex;flex-direction:column;border:1px solid rgba(255,255,255,0.04);
+}
+.t-mark{
+  font-family:'DM Serif Display',serif;font-size:80px;
+  line-height:0.7;color:rgba(255,255,255,0.07);
+  margin-bottom:1.4rem;display:block;
+}
+.t-body{
+  font-size:15px;color:rgba(255,255,255,0.5);
+  line-height:1.95;flex:1;margin-bottom:2.25rem;font-style:italic;
+}
+.t-rule{width:28px;height:1px;background:rgba(255,255,255,0.12);margin-bottom:1.4rem;}
+.t-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.08em;color:rgba(255,255,255,0.78);}
+.t-industry{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.24);margin-top:5px;}
+
+/* ── PROCESS ── */
+.process{padding:var(--sp) var(--hp);background:var(--page);border-top:1px solid var(--border);}
+.process-inner{max-width:1280px;margin:0 auto;}
+.process-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;
+  margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);
+}
+.process-track{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+.process-track::before{
+  content:'';position:absolute;top:22px;
+  left:calc(10% + 22px);right:calc(10% + 22px);
+  height:1px;background:var(--border-dk);z-index:0;
+}
+.ps{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1rem;position:relative;z-index:1;}
+.ps-dot{
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--border-dk);background:var(--page);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:18px;
+  letter-spacing:0.05em;color:var(--text-hint);
+  margin-bottom:1.5rem;flex-shrink:0;
+}
+.ps.active .ps-dot{background:var(--text);color:#fff;border-color:var(--text);}
+.ps.ai .ps-dot{background:linear-gradient(135deg,var(--ga),var(--gc));color:#0a0a0a;border-color:transparent;}
+.ps-eyebrow{font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-hint);margin-bottom:0.5rem;}
+.ps.ai .ps-eyebrow{background:linear-gradient(90deg,var(--ga),var(--gc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ps-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.05em;margin-bottom:0.6rem;}
+.ps-desc{font-size:13px;color:var(--text-hint);line-height:1.75;}
+
+/* ── FAQ ── */
+.faq{padding:var(--sp) var(--hp);background:var(--white);border-top:1px solid var(--border);}
+.faq-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:8rem;}
+.faq-list{border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:0.04em;
+  padding:1.6rem 0;cursor:pointer;display:flex;
+  justify-content:space-between;align-items:center;gap:1.25rem;
+  user-select:none;line-height:1.2;
+}
+.faq-q::after{
+  content:'+';font-family:'DM Sans',sans-serif;font-size:26px;
+  font-weight:300;color:var(--text-hint);transition:transform .25s;
+  flex-shrink:0;line-height:1;
+}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--accent);}
+.faq-a{font-size:15px;color:var(--text-sec);line-height:1.95;padding-bottom:1.75rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── CTA ── */
+.cta{background:var(--text);padding:var(--sp) var(--hp);position:relative;overflow:hidden;}
+.cta::before{
+  content:'';position:absolute;top:-150px;right:-150px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,195,247,0.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;position:relative;z-index:1;}
+.cta-eyebrow{
+  font-size:14px;letter-spacing:0.34em;text-transform:uppercase;
+  color:rgba(255,255,255,0.28);margin-bottom:1.4rem;
+  display:flex;align-items:center;gap:16px;
+}
+.cta-eyebrow::before{content:'';display:inline-block;width:32px;height:1px;background:rgba(255,255,255,0.14);}
+.cta h2{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6.5vw,88px);
+  letter-spacing:0.02em;line-height:0.9;color:#fff;margin-bottom:1.4rem;
+}
+.cta h2 em{font-family:'DM Serif Display',serif;font-style:italic;}
+.cta-sub{font-size:16px;color:rgba(255,255,255,0.38);line-height:1.95;}
+.cta-right{display:flex;flex-direction:column;gap:1.4rem;}
+.cta-book{
+  display:block;text-align:center;font-size:13px;letter-spacing:0.2em;
+  text-transform:uppercase;font-weight:500;padding:20px 32px;border-radius:2px;
+  text-decoration:none;background:linear-gradient(90deg,var(--ga),var(--gc));
+  color:#0a0a0a;transition:opacity .2s;
+}
+.cta-book:hover{opacity:0.88;}
+.cta-divider{display:flex;align-items:center;gap:1rem;}
+.cta-divider::before,.cta-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.08);}
+.cta-divider span{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.2);}
+.cta-input-row{display:grid;grid-template-columns:1fr auto;gap:0;}
+.cta-input{
+  padding:17px 22px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);border-right:none;
+  border-radius:2px 0 0 2px;font-size:15px;color:#fff;
+  font-family:'DM Sans',sans-serif;outline:none;width:100%;
+}
+.cta-input::placeholder{color:rgba(255,255,255,0.24);}
+.cta-input:focus{border-color:rgba(255,255,255,0.22);}
+.cta-submit{
+  padding:17px 28px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+  font-weight:500;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);
+  border:1px solid rgba(255,255,255,0.1);border-left:none;
+  cursor:pointer;font-family:'DM Sans',sans-serif;border-radius:0 2px 2px 0;
+  white-space:nowrap;transition:all .2s;
+}
+.cta-submit:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.cta-note{font-size:13px;color:rgba(255,255,255,0.2);letter-spacing:0.04em;text-align:center;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--text);border-top:1px solid rgba(255,255,255,0.06);
+  padding:2.5rem var(--hp);display:flex;
+  align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2);letter-spacing:0.07em;}
+.footer-links{display:flex;gap:3rem;}
+.footer-links a{
+  font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;
+}
+.footer-links a:hover{color:rgba(255,255,255,0.72);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  :root{--hp:3.5rem;}
+  .pkg-grid{grid-template-columns:repeat(2,1fr);}
+  .what-grid{grid-template-columns:1fr;gap:4rem;}
+  .what-sticky{position:static;}
+  .process-track{grid-template-columns:repeat(3,1fr);row-gap:3.5rem;}
+  .process-track::before{display:none;}
+}
+@media(max-width:860px){
+  :root{--hp:2.5rem;--sp:4rem;}
+  .hero-body-row,.who-header,.pkg-header,.t-header,.process-header,.cta-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .hero-panel{grid-template-columns:repeat(2,1fr);}
+  .pkg-grid,.who-grid,.always-grid,.t-grid{grid-template-columns:1fr;}
+  .faq-inner{grid-template-columns:1fr;gap:3.5rem;}
+  .cta-input-row{grid-template-columns:1fr;}
+  .cta-submit{border-radius:2px;border-left:1px solid rgba(255,255,255,0.1);}
+  .cta-input{border-right:1px solid rgba(255,255,255,0.1);border-radius:2px;}
+  footer{padding:2rem 2.5rem;}
+}
+@media(max-width:600px){
+  :root{--sp:3rem;}
+  .hero{padding-top:5.5rem;}
+  .hero-headline{font-size:clamp(56px,15vw,100px);}
+  .hero-panel{grid-template-columns:1fr 1fr;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+  .process-track{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">The Divine Experience Agency — Website Design</div>
+    <h1 class="hero-headline">
+      A Site That Works<br>
+      <em>As Hard As You Do.</em>
+    </h1>
+    <div class="hero-body-row">
+      <div class="hero-body-left">
+        <p>We design and develop custom Squarespace websites for coaches, consultants, service providers, speakers, and public figures. When we're done, your digital presence reflects the quality of your work — and performs accordingly.</p>
+        <div class="hero-actions">
+          <a href="https://dvxagency.youcanbook.me" target="_blank" class="btn-primary">Schedule a Discovery Call</a>
+          <a href="#packages" class="btn-outline">View Packages</a>
+        </div>
+      </div>
+      <div class="hero-proof">
+        <div class="hpi">
+          <div class="hpi-dot"></div>
+          <div class="hpi-text"><strong>Built exclusively on Squarespace</strong> — one platform, developed at a level of depth that generalist agencies cannot offer</div>
+        </div>
+        <div class="hpi">
+          <div class="hpi-dot"></div>
+          <div class="hpi-text"><strong>Four defined packages</strong> — from a focused single page to a complete digital ecosystem</div>
+        </div>
+        <div class="hpi">
+          <div class="hpi-dot"></div>
+          <div class="hpi-text"><strong>Strategy session on every engagement</strong> — the brief is established before any work begins</div>
+        </div>
+        <div class="hpi">
+          <div class="hpi-dot"></div>
+          <div class="hpi-text"><strong>Complete copywriting included</strong> — every page delivered with finished, refined copy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="hp-cell">
+      <div class="hp-cell-label">Platform</div>
+      <div class="hp-cell-val">Squarespace</div>
+      <div class="hp-cell-sub">Exclusively</div>
+    </div>
+    <div class="hp-cell">
+      <div class="hp-cell-label">Fastest Delivery</div>
+      <div class="hp-cell-val">2 Weeks</div>
+      <div class="hp-cell-sub">Single page builds</div>
+    </div>
+    <div class="hp-cell">
+      <div class="hp-cell-label">Investment</div>
+      <div class="hp-cell-val">$1,200 – $6,500</div>
+      <div class="hp-cell-sub">Four scoped tiers</div>
+    </div>
+    <div class="hp-cell">
+      <div class="hp-cell-label">Copy</div>
+      <div class="hp-cell-val">Included</div>
+      <div class="hp-cell-sub">Every page, every tier</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHO WE BUILD FOR ══════════ -->
+<section class="who" id="who">
+  <div class="who-inner">
+    <div class="who-header">
+      <div>
+        <div class="eyebrow">Ideal Clients</div>
+        <h2 class="sec-h">Who We Build For</h2>
+      </div>
+      <p class="sec-b" style="margin-bottom:0;">We build for established professionals whose current digital presence no longer reflects the standard of their work — and who understand that the gap between how they show up online and how they operate in the real world is costing them.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-n">01</div>
+        <h3>Your Reputation Precedes You.<br>Your Website Doesn't.</h3>
+        <p>You are a consultant, strategist, or service provider with a strong track record and a client base that speaks for itself. Your website, however, was built quickly and has not kept pace. Prospective clients form their first impression before they ever speak with you — and right now, that impression falls short.</p>
+        <ul>
+          <li>A site that communicates authority from the first page</li>
+          <li>Service and offer pages built around your actual work</li>
+          <li>Booking and inquiry flows that convert qualified prospects</li>
+        </ul>
+      </div>
+      <div class="who-card">
+        <div class="who-n">02</div>
+        <h3>Your Offer Is Proven.<br>Your Infrastructure Is Not.</h3>
+        <p>You are a coach or course creator with a validated offer and a growing audience. The gap is not in what you deliver — it is in how your digital infrastructure presents and supports it. Visitors arrive, but the experience does not convert them at the level your offer deserves.</p>
+        <ul>
+          <li>Course and product pages structured to convert</li>
+          <li>Booking, email, and payment — integrated into one system</li>
+          <li>A complete digital funnel that functions without your intervention</li>
+        </ul>
+      </div>
+      <div class="who-card">
+        <div class="who-n">03</div>
+        <h3>Your Platform Is Established.<br>Your Website Is Not.</h3>
+        <p>You are a speaker, influencer, or public figure with a substantial following and a recognizable presence. What is missing is a website that matches that standing — one that books engagements, centralizes your offers, and presents you with the level of credibility your audience already grants you.</p>
+        <ul>
+          <li>Speaking, booking, and media pages built for your level</li>
+          <li>Press kit and public appearance pages</li>
+          <li>A site as composed and authoritative as your public presence</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT WE DELIVER ══════════ -->
+<section class="what" id="services">
+  <div class="what-inner">
+    <div class="what-grid">
+      <div class="what-sticky">
+        <div class="eyebrow">Scope of Work</div>
+        <h2 class="sec-h">What We Deliver</h2>
+        <p class="sec-b">Every page we build has a defined purpose. We do not design for appearance — each component is engineered around a specific outcome for your business.</p>
+        <a href="#packages" class="btn-outline">View Packages</a>
+      </div>
+      <div class="what-list">
+        <div class="wi">
+          <span class="wi-n">01</span>
+          <div>
+            <h3>Sales &amp; Landing Pages</h3>
+            <p>Dedicated offer pages, lead generation pages, and launch pages — designed with a defined conversion objective and built to move qualified visitors from awareness to action.</p>
+          </div>
+          <div class="wi-badge std">All Tiers</div>
+        </div>
+        <div class="wi">
+          <span class="wi-n">02</span>
+          <div>
+            <h3>Full Brand Sites</h3>
+            <p>Home, about, services, and supporting pages — the foundational digital infrastructure that establishes your authority, communicates your offer, and converts the right clients.</p>
+          </div>
+          <div class="wi-badge std">Tier 02+</div>
+        </div>
+        <div class="wi">
+          <span class="wi-n">03</span>
+          <div>
+            <h3>Course &amp; Digital Product Pages</h3>
+            <p>Squarespace course pages, member areas, and digital product listings — structured to support the complete buyer journey from discovery through purchase and access.</p>
+          </div>
+          <div class="wi-badge tier">Tier 03+</div>
+        </div>
+        <div class="wi">
+          <span class="wi-n">04</span>
+          <div>
+            <h3>Event Pages</h3>
+            <p>Registration and event detail pages built to drive attendance and communicate the value of your events with the presentation they warrant.</p>
+          </div>
+          <div class="wi-badge tier">Tier 03+</div>
+        </div>
+        <div class="wi">
+          <span class="wi-n">05</span>
+          <div>
+            <h3>Blog &amp; Content Architecture</h3>
+            <p>A structured content section that supports long-term authority — integrated seamlessly into your site and consistent with the quality of every page around it.</p>
+          </div>
+          <div class="wi-badge tier">Tier 04</div>
+        </div>
+        <div class="wi">
+          <span class="wi-n">06</span>
+          <div>
+            <h3>Platform Integrations</h3>
+            <p>Booking tools, email marketing platforms, and payment processors — connected, configured, and tested within your Squarespace build before the site goes live.</p>
+          </div>
+          <div class="wi-badge std">All Tiers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PACKAGES ══════════ -->
+<section class="packages" id="packages">
+  <div class="packages-inner">
+    <div class="pkg-header">
+      <div>
+        <div class="eyebrow">Pricing</div>
+        <h2 class="sec-h">The Blueprint Series</h2>
+      </div>
+      <p class="sec-b" style="margin-bottom:0;">Four tiers, each scoped to a distinct phase of business growth. Every engagement opens with a strategy session — objectives, scope, and deliverables are confirmed before any work commences.</p>
+    </div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-bp-label">Blueprint</div>
+        <div class="pkg-num">01</div>
+        <div class="pkg-name">The Single Page</div>
+        <div class="pkg-scope">1 page · Sales or landing</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-price"><sub>$</sub>1,200</div>
+        <div class="pkg-timeline">2-week delivery</div>
+        <ul class="pkg-features">
+          <li>A single, high-converting page built to a defined objective</li>
+          <li>Sales page, landing page, or event registration</li>
+          <li>Complete copywriting included</li>
+          <li>Booking tool or email opt-in connected at launch</li>
+          <li>Mobile-first Squarespace development</li>
+          <li>One revision round</li>
+          <li>60-minute strategy session</li>
+        </ul>
+        <a href="https://dvxagency.youcanbook.me" target="_blank" class="pkg-cta">Begin the Conversation</a>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-bp-label">Blueprint</div>
+        <div class="pkg-num">02</div>
+        <div class="pkg-name">The Starter Site</div>
+        <div class="pkg-scope">3–5 pages · Brand foundation</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-price"><sub>$</sub>2,200</div>
+        <div class="pkg-timeline">3–4 week delivery</div>
+        <ul class="pkg-features">
+          <li>A complete, credible digital presence across five pages</li>
+          <li>Home, about, services, contact, and one additional page</li>
+          <li>Complete copywriting across all pages</li>
+          <li>Email marketing platform connected and configured</li>
+          <li>Booking or payment integration included</li>
+          <li>Two revision rounds</li>
+          <li>60-minute strategy session</li>
+        </ul>
+        <a href="https://dvxagency.youcanbook.me" target="_blank" class="pkg-cta">Begin the Conversation</a>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-bp-label">Blueprint · Most Requested</div>
+        <div class="pkg-num">03</div>
+        <div class="pkg-name">The Full Brand Site</div>
+        <div class="pkg-scope">6–10 pages · Full brand build</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-price"><sub>$</sub>3,800</div>
+        <div class="pkg-timeline">4–5 week delivery</div>
+        <ul class="pkg-features">
+          <li>A fully realized digital presence positioned for growth</li>
+          <li>Up to ten pages — services, courses, events, and more</li>
+          <li>Course or digital product pages included</li>
+          <li>Complete copywriting across all pages</li>
+          <li>Member area or gated content configured</li>
+          <li>Complete booking, email, and payment integration</li>
+          <li>Two revision rounds</li>
+          <li>90-minute strategy session</li>
+        </ul>
+        <a href="https://dvxagency.youcanbook.me" target="_blank" class="pkg-cta">Begin the Conversation</a>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-bp-label">Blueprint</div>
+        <div class="pkg-num">04</div>
+        <div class="pkg-name">The Full Ecosystem</div>
+        <div class="pkg-scope">10+ pages · Complete digital build</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-price"><sub>$</sub>6,500</div>
+        <div class="pkg-timeline">5–6 week delivery</div>
+        <ul class="pkg-features">
+          <li>A comprehensive digital infrastructure built to scale</li>
+          <li>Courses, shop, events, and blog — fully integrated</li>
+          <li>Multiple sales and landing pages included</li>
+          <li>Complete copywriting across every page</li>
+          <li>All platform integrations connected and tested</li>
+          <li>Custom interactions and animations throughout</li>
+          <li>Three revision rounds</li>
+          <li>90-minute strategy session</li>
+        </ul>
+        <a href="https://dvxagency.youcanbook.me" target="_blank" class="pkg-cta">Begin the Conversation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ALWAYS INCLUDED ══════════ -->
+<section class="always">
+  <div class="always-inner">
+    <div class="always-header">
+      <div class="eyebrow">On Every Engagement</div>
+      <h2 class="sec-h">What Is Always Included</h2>
+    </div>
+    <div class="always-grid">
+      <div class="always-card">
+        <div class="ac-rule"></div>
+        <h3>Strategy Session First</h3>
+        <p>Every engagement opens with a dedicated strategy session. We establish your offer, your audience, and the precise objectives the site must accomplish before any design work begins.</p>
+      </div>
+      <div class="always-card">
+        <div class="ac-rule"></div>
+        <h3>Complete Copywriting</h3>
+        <p>We produce all copy for your site — drafted with AI assistance, refined by our team, and shaped to your voice. Every page arrives with finished, reviewed copy. No additional cost.</p>
+      </div>
+      <div class="always-card">
+        <div class="ac-rule"></div>
+        <h3>Mobile-First Development</h3>
+        <p>Every page is designed and tested at mobile scale before desktop. Your audience is primarily on their phone — your site is built with that reality as its foundation.</p>
+      </div>
+      <div class="always-card">
+        <div class="ac-rule"></div>
+        <h3>Squarespace, Exclusively</h3>
+        <p>We build on one platform and know it completely. That singular focus produces cleaner builds, a more predictable process, and a site you can manage confidently after delivery.</p>
+      </div>
+      <div class="always-card">
+        <div class="ac-rule"></div>
+        <h3>Walkthrough at Handoff</h3>
+        <p>At project close, you receive a full recorded walkthrough of your site — so you can update, maintain, and manage your Squarespace build without requiring ongoing assistance from us.</p>
+      </div>
+      <div class="always-card">
+        <div class="ac-rule"></div>
+        <h3>14-Day Post-Launch Support</h3>
+        <p>Two weeks of included support following launch to address corrections, adjustments, or refinements that arise once the site is live and in active use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="t-header">
+      <div>
+        <div class="eyebrow-light">Client Feedback</div>
+        <h2 class="sec-h-light">What Our Clients Say</h2>
+      </div>
+      <p class="sec-b-light" style="margin-bottom:0;">The measure of our work is not the deliverable itself — it is what our clients are able to accomplish because of it. These are their words.</p>
+    </div>
+    <div class="t-grid">
+
+      <div class="t-card">
+        <div class="t-mark">"</div>
+        <p class="t-body">Engaging The Divine Experience Agency was the best decision I made for my business. They made a process I found completely overwhelming feel seamless from start to finish. The final product exceeded every expectation — and they treated my goals as if they were their own.</p>
+        <div class="t-rule"></div>
+        <div class="t-name">Business Owner</div>
+        <div class="t-industry">Financial Services</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-mark">"</div>
+        <p class="t-body">What sets them apart is that they actually listen. They understood precisely what we needed and delivered accordingly. More than that, they were genuinely invested in our success. That level of engagement changed everything about the outcome.</p>
+        <div class="t-rule"></div>
+        <div class="t-name">Executive Client</div>
+        <div class="t-industry">Corporate Services</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-mark">"</div>
+        <p class="t-body">From the first conversation to final delivery, The Divine Experience Agency demonstrated professionalism, creativity, and the kind of attention to detail that is genuinely difficult to find. The work exceeded my expectations. I cannot wait to work with them again.</p>
+        <div class="t-rule"></div>
+        <div class="t-name">Satisfied Client</div>
+        <div class="t-industry">Branding &amp; Creative Services</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-mark">"</div>
+        <p class="t-body">Their attentiveness is what distinguishes them. They listened carefully to every detail of what we needed — and the final work reflected each one precisely. Professional, exacting, and genuinely invested in delivering the right result.</p>
+        <div class="t-rule"></div>
+        <div class="t-name">Executive Client</div>
+        <div class="t-industry">Corporate Services</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-mark">"</div>
+        <p class="t-body">They took a process that felt impossible and made it entirely achievable. Professional, creative, and meticulous — but what distinguished the experience was that they treated this as if it were their own business. That is the kind of partnership that produces exceptional results.</p>
+        <div class="t-rule"></div>
+        <div class="t-name">Satisfied Client</div>
+        <div class="t-industry">Branding &amp; Creative Services</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-mark">"</div>
+        <p class="t-body">I came in overwhelmed and uncertain about the process. The Divine Experience Agency made every step feel manageable. They were not simply executing a brief — they were invested in the outcome. The final product was everything I envisioned and more.</p>
+        <div class="t-rule"></div>
+        <div class="t-name">Business Owner</div>
+        <div class="t-industry">Professional Services</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div>
+        <div class="eyebrow">Methodology</div>
+        <h2 class="sec-h">How We Work</h2>
+      </div>
+      <p class="sec-b" style="margin-bottom:0;">A defined five-phase process from initial brief to live delivery. Each phase concludes with your review and approval — nothing advances without your sign-off.</p>
+    </div>
+    <div class="process-track">
+      <div class="ps active">
+        <div class="ps-dot">01</div>
+        <div class="ps-eyebrow">Phase One</div>
+        <div class="ps-name">Strategy</div>
+        <p class="ps-desc">Offer structure, audience, site objectives, and project scope established in full.</p>
+      </div>
+      <div class="ps ai">
+        <div class="ps-dot">02</div>
+        <div class="ps-eyebrow">Phase Two · AI-Assisted</div>
+        <div class="ps-name">Copywriting</div>
+        <p class="ps-desc">Complete copy produced for every page. Reviewed and approved before design begins.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-dot">03</div>
+        <div class="ps-eyebrow">Phase Three</div>
+        <div class="ps-name">Design Review</div>
+        <p class="ps-desc">Full desktop and mobile designs submitted for review and approval.</p>
+      </div>
+      <div class="ps ai">
+        <div class="ps-dot">04</div>
+        <div class="ps-eyebrow">Phase Four · AI-Assisted</div>
+        <div class="ps-name">Development</div>
+        <p class="ps-desc">Approved designs developed in Squarespace with all integrations connected and tested.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-dot">05</div>
+        <div class="ps-eyebrow">Phase Five</div>
+        <div class="ps-name">Launch &amp; Handoff</div>
+        <p class="ps-desc">Site goes live. Walkthrough recording and full editor access delivered at close.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div>
+      <div class="eyebrow">Due Diligence</div>
+      <h2 class="sec-h">Frequently Asked</h2>
+      <p class="sec-b">If your question is not addressed below, bring it to the discovery call.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">Why do you build exclusively on Squarespace?</div>
+        <div class="faq-a">Building on a single platform allows us to develop a depth of expertise that generalist agencies cannot match. We know Squarespace completely — its capabilities, its constraints, and how to build within it at a level that produces clean, performant, and maintainable results. That specialization directly benefits the quality, timeline, and longevity of your project.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does copywriting included actually mean?</div>
+        <div class="faq-a">We produce a complete first draft of every page's copy before design begins — headlines, body content, calls to action, and supporting text. That draft is produced with AI assistance and refined by our team to align with your voice, your offer, and your audience. You review, provide notes, and we finalize. No page goes into design without approved copy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to have my brand identity finalized before we begin?</div>
+        <div class="faq-a">Yes. We apply your brand — we do not create it. A finalized logo, color system, and typography are required before the project begins. If those assets are not yet in place, we will identify that in the strategy session and advise on the appropriate next steps before any work commences.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if my requirements exceed the package I've selected?</div>
+        <div class="faq-a">Scope is confirmed at the strategy session before any work begins. If your requirements are better suited to a higher tier, we communicate that clearly at the outset. Any additions beyond confirmed scope are priced separately and require written approval before being incorporated.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you redesign an existing Squarespace site?</div>
+        <div class="faq-a">Yes. Redesigns follow the same package structure. We conduct a full audit during the strategy session, determine what carries forward and what is rebuilt from the ground up, and finalize scope accordingly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What are the payment terms?</div>
+        <div class="faq-a">Fifty percent is due at project commencement, with the remaining fifty percent due prior to final delivery. We accept card and ACH. Payment plans are available for projects above $2,500 — please raise this during the discovery call.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What support is available after the site launches?</div>
+        <div class="faq-a">Every project includes fourteen days of post-launch support for corrections and minor adjustments at no additional cost. You also receive a full recorded walkthrough and complete editor access at handoff, enabling you to manage the site independently beyond the support window.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-eyebrow">Begin Here</div>
+      <h2>Your Digital Presence<br><em>Deserves More.</em></h2>
+      <p class="cta-sub">Schedule a complimentary 20-minute discovery call. We will assess your current position, outline precisely what we would build, and provide a clear path to a site that operates at the level your business demands.</p>
+    </div>
+    <div class="cta-right">
+      <a href="https://dvxagency.youcanbook.me" target="_blank" class="cta-book">Schedule Your Discovery Call</a>
+      <div class="cta-divider"><span>or send us a note</span></div>
+      <div class="cta-input-row">
+        <input class="cta-input" type="email" placeholder="Your email address">
+        <button class="cta-submit">Send</button>
+      </div>
+      <p class="cta-note">No commitment required. We respond within 24 – 48 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-copy">© 2025 The Divine Experience Agency. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#">Presentation Design</a>
+    <a href="#">Website Design</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
